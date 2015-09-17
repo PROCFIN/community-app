@@ -328,8 +328,14 @@ module.exports = function(grunt) {
             env: 'production'
         }
       }
+    },
+
+    zip: {
+      'dist/community-app.zip': ['/dist/community-app',]
     }
   });
+
+
 
 
   // Run development server using grunt serve
@@ -340,7 +346,7 @@ module.exports = function(grunt) {
   
   // Default task(s).
   grunt.registerTask('default', ['clean', 'jshint', 'copy:dev']);
-  grunt.registerTask('prod', ['clean', 'copy:prod', 'concat', 'uglify:prod', 'devcode:dist', 'hashres','replace']);
+  grunt.registerTask('prod', ['clean', 'copy:prod', 'concat', 'uglify:prod', 'devcode:dist', 'hashres','replace', 'zip']);
   grunt.registerTask('dev', ['clean', 'copy:dev']);
   grunt.registerTask('test', ['karma']);
 
