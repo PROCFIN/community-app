@@ -190,7 +190,17 @@ input.search-query {
 }
 .form-control {
     border-radius: 0px;
-    height: 30px
+    height: 30px;
+}
+
+.input-group-addon {
+    border-radius: 0px;
+    height: 30px;
+    padding: 0 12px;
+}
+.input-group-addon .form-control {
+  padding: 0 12px;
+  height: 28px;
 }
 
 api-validate label {

@@ -6,9 +6,16 @@
             scope.allCurrOptions = [];
             scope.hideview = false;
             scope.selected = undefined;
+            scope.formData = {};
 
             resourceFactory.currencyConfigResource.get(function (data) {
                 scope.selectedCurrOptions = data.selectedCurrencyOptions;
+                var homeCurrency = _.find(data.selectedCurrencyOptions, function(option) {
+                  return option.isHomeCurrency;
+                });
+                if (homeCurrency && homeCurrency.code) {
+                  scope.formData.homeCurrencyCode = homeCurrency.code;
+                }
                 scope.allCurrOptions = data.currencyOptions;
 
             });
@@ -42,6 +49,10 @@
                     currencies.push(scope.selectedCurrOptions[i].code);
                 }
                 curr["currencies"] = currencies;
+                if (scope.formData && scope.formData.homeCurrencyCode) {
+                  curr["homeCurrencyCode"] = scope.formData.homeCurrencyCode;
+                }
+
                 resourceFactory.currencyConfigResource.upd(curr, function (data) {
                     route.reload();
                 });
