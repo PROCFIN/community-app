@@ -94,6 +94,7 @@ define(['Q', 'underscore', 'mifosX'], function (Q) {
             'organization/ViewPaymentTypeController',
             'organization/CreatePaymentTypeController',
             'organization/EditPaymentTypeController',
+            'organization/ExchangeRateController',
             'accounting/AccFreqPostingController',
             'accounting/AccCoaController',
             'accounting/AccCreateGLAccountController',

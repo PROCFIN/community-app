@@ -1,0 +1,72 @@
+<div class="col-md-12" ng-controller="ExchangeRateController">
+  <ul class="breadcrumb">
+    <li><a href="#/organization">{{'label.anchor.organization'| translate}}</a></li>
+    <li class="active">{{'label.anchor.exchangerates'| translate}}</li>
+  </ul>
+
+  <!--<input ng-autofocus="true" ng-model="filterText" type="text" ng-keyup="onFilter()" class="form-control" placeholder="{{'label.input.filterbycurrency'| translate}}">-->
+  <div class="clearfix">
+    <button type="button" class="btn btn-primary pull-right" has-permission='CREATE_EXCHANGERATE' style="margin: 10px 0" ng-click="showForm = true; exchangeRate = {};">{{'label.button.createexchangerate'| translate }}</button>
+  </div>
+
+  <form ng-submit="save()" name="exchangeRateForm" ng-show="showForm" novalidate>
+    <div class="clearfix">
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Date</label>
+          <div class="input-group">
+            <input id="date" sort type="text" datepicker-pop="dd/MM/yyyy" ng-model="exchangeRate.date" class="form-control" is-open="datepicker.opened" min="minDate" max="restrictDate"/>
+            <label for="date" class="input-group-addon" style="cursor: pointer;"><i class="icon icon-calendar"></i></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Rate Type</label>
+          <!--<input id="type" type="text" class="form-control" name="type" ng-model="exchangeRate.type">-->
+          <select id="type" class="form-control" name="type" ng-model="exchangeRate.typeId" ng-options="type.id as type.name for type in data.allowedExchangeRateTypeOptions"></select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Currency</label>
+          <select id="currency" class="form-control" name="currency" ng-model="exchangeRate.currency" ng-options="currency.code as currency.displayLabel for currency in data.allowedCurrencies"></select>
+        </div>
+        <div class="form-group">
+          <label>Amount</label>
+          <input id="amount" type="text" class="form-control" name="amount" ng-model="exchangeRate.amount">
+        </div>
+      </div>
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary" has-permission='CREATE_EXCHANGERATE' style="margin: 10px 0">{{'label.button.saveexchangerate'| translate }}</button>
+        <button type="button" class="btn btn-primary" style="margin: 10px 0" ng-click="showForm = false; exchangeRate = {};">{{'label.button.cancelexchangerate'| translate }}</button>
+        <api-validate></api-validate>
+      </div>
+    </div>
+  </form>
+
+
+
+  <table class="table">
+    <thead>
+      <tr class="graybg">
+        <th>{{ 'label.heading.date' | translate }}</th>
+        <th>{{ 'label.heading.currency' | translate }}</th>
+        <th>{{ 'label.heading.amount' | translate }}</th>
+        <th>{{ 'label.heading.type' | translate }}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="exchangeRate in exchangeRates| filter:filterText">
+        <td>{{exchangeRate.date| DateFormat}}</td>
+        <td>{{exchangeRate.currency}}</td>
+        <td>{{exchangeRate.amount}}</td>
+        <td>{{exchangeRate.rateType.name}}</td>
+        <td style="width: 1%; white-space: nowrap;">
+          <a href="javascript:void(0);" ng-click="editExchangeRate(exchangeRate)"><i class="icon icon-edit"></i></a>
+          <a href="javascript:void(0);" ng-click="removeExchangeRate(exchangeRate)"><i class="icon icon-remove"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

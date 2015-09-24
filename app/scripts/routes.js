@@ -433,6 +433,9 @@
             .when('/passwordpreferences', {
                 templateUrl: 'views/organization/passwordpreferences.html'
             })
+            .when('/exchangerate', {
+                templateUrl: 'views/organization/exchangerate.html'
+            })
             .when('/viewpaymenttype/', {
                 templateUrl: 'views/organization/viewpaymenttype.html'
             })

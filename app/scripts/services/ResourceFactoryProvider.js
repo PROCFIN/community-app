@@ -201,6 +201,16 @@
                         getAllEmployees: {method: 'GET', params: {}, isArray: true},
                         update: { method: 'PUT' }
                     }),
+                    exchangeRateResource: defineResource(apiVer + "/exchangerate/:exchangeRateId", {exchangeRateId: '@exchangeRateId'}, {
+                        getAllExchangeRates: {method: 'GET', params: {}, isArray: true},
+                        update: { method: 'PUT' },
+                        template: {
+                          method: 'GET',
+                          params: {
+                            exchangeRateId: 'template'
+                          }
+                        }
+                    }),
                     globalSearch: defineResource(apiVer + "/search", {query: '@query', resource: '@resource'}, {
                         search: { method: 'GET',
                             params: { query: '@query' , resource: '@resource'},

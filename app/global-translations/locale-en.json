@@ -2124,6 +2124,7 @@
     "label.anchor.editholiday": "Edit Holiday",
     "label.anchor.createoffice": "Create Office",
     "label.anchor.currencyconfig": "Currency Configuration",
+    "label.anchor.exchangerates": "Exchange Rates",
     "label.anchor.editcurrencyconfig": "Edit Currency Configuration",
     "label.anchor.editemployee": "Edit Employee",
     "label.anchor.editoffice": "Edit Office",
@@ -2155,6 +2156,9 @@
     "label.button.createholiday": "Create Holiday",
     "label.button.createoffice": "Create Office",
     "label.button.addedit":"Add/Edit",
+    "label.button.saveexchangerate":"Save",
+    "label.button.cancelexchangerate":"Cancel",
+    "label.button.createexchangerate":"Create Exchange Rate",
 
     "#Misc Labels": "..",
     "label.addnewofficeormodifyordeactivateofficeormodifyofficeheirarchy": "Add new office or modify or deactivate office or modify office hierarchy",
@@ -2196,6 +2200,10 @@
     "error.msg.holiday.repayments.rescheduled.date.should.not.fall.on.non.working.day": "Repayments rescheduled to date should not fall on non working days.",
     "validation.msg.holiday.offices.cannot.be.blank":"Please select an office",
     "error.msg.currency.currencyCode.inUse":"Currency you are trying to remove is in use",
+    "validation.msg.exchangerate.typeId.cannot.be.blank":"Rate type is mandatory.",
+    "validation.msg.exchangerate.currency.cannot.be.blank":"Currency is mandatory.",
+    "validation.msg.exchangerate.amount.cannot.be.blank":"Amount is mandatory.",
+    "validation.msg.exchangerate.date.cannot.be.blank":"Date is mandatory.",
 
     "#--------------": "------------",
 
