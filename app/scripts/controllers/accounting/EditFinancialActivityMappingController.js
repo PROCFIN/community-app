@@ -9,7 +9,9 @@
         scope.glAccountOptions = data.glAccountOptions;
         scope.formData.financialActivityId = data.financialActivityData.id;
         scope.formData.glAccountId = data.glAccountData.id;
+        scope.formData.currency = data.currency;
         scope.financialActivityOptions = data.financialActivityOptions;
+        scope.currencyOptions = data.currencyOptions;
         financialActivityIds = _.indexBy(data.financialActivityOptions, 'id');
         scope.updateActivityOptions(data.financialActivityData.id);
       });

@@ -6,10 +6,15 @@
 
       resourceFactory.officeToGLAccountMappingResource.get({mappingId: 'template'}, function(data) {
         scope.formData.financialActivityId = 100;
+        if (data.currencyOptions && data.currencyOptions.length) {
+          scope.formData.currency = data.currencyOptions[0].code;
+        }
+
         scope.glAccountOptions = data.glAccountOptions;
         scope.financialActivityOptions = data.financialActivityOptions;
         financialActivityIds = _.indexBy(data.financialActivityOptions, 'id');
         scope.accountOptions = scope.glAccountOptions.assetAccountOptions;
+        scope.currencyOptions = data.currencyOptions;
       });
 
       scope.updateActivityOptions = function(financialActivityId) {

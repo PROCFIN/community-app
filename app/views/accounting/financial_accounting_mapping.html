@@ -12,12 +12,14 @@
         <tr class="graybg">
             <th>{{'label.heading.financial.activity.type' | translate}}</th>
             <th>{{'label.heading.financial.activity.account.name' | translate}}</th>
+            <th>{{'label.heading.financial.activity.account.currency' | translate}}</th>
         </tr>
         </thead>
         <tbody>
         <tr class="pointer-main" ng-repeat="mapping in mappings">
             <td class="pointer" data-ng-click="routeTo(mapping.id)">{{mapping.financialActivityData.name | translate }}</td>
             <td class="pointer" data-ng-click="routeTo(mapping.id)">{{mapping.glAccountData.name}}({{mapping.glAccountData.glCode}})</td>
+            <td class="pointer" data-ng-click="routeTo(mapping.id)">{{mapping.currency}}</td>
         </tr>
         </tbody>
     </table>

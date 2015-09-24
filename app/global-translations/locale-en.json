@@ -811,6 +811,7 @@
     "label.define.openingbalances":"Set or update office-level opening balances for GL Accounts",
     "label.heading.financial.activity.type":"Financial Activity",
     "label.heading.financial.activity.account.name":"Account Name",
+    "label.heading.financial.activity.account.currency":"Currency",
     "label.heading.transferredfrom": "Transferred From",
     "label.heading.createdby":"Created By",
     "label.heading.entryid":"Entry ID",
