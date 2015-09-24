@@ -9,15 +9,15 @@
                 scope.formData.financialActivityId = data.financialActivityData.id;
                 scope.formData.glAccountId = data.glAccountData.id;
                 scope.financialActivityOptions = data.financialActivityOptions;
-                scope.updateActivityOptions(scope.formData.financialActivityId);
+                scope.updateActivityOptions(data.financialActivityData.mappedGLAccountType);
             });
 
-            scope.updateActivityOptions = function(activityId){
-                if(activityId === 100){
+            scope.updateActivityOptions = function(mappedGLAccountType){
+                if(mappedGLAccountType === 'ASSET'){
                     scope.accountOptions = scope.glAccountOptions.assetAccountOptions;
-                }else if(activityId === 200){
+                }else if(mappedGLAccountType === 'LIABILITY'){
                     scope.accountOptions = scope.glAccountOptions.liabilityAccountOptions;
-                }else if(activityId === 300){
+                }else if(mappedGLAccountType === 'EQUITY'){
                     scope.accountOptions = scope.glAccountOptions.equityAccountOptions;
                 }
             };
