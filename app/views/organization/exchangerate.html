@@ -23,7 +23,7 @@
         <div class="form-group">
           <label>Rate Type</label>
           <!--<input id="type" type="text" class="form-control" name="type" ng-model="exchangeRate.type">-->
-          <select id="type" class="form-control" name="type" ng-model="exchangeRate.typeId" ng-options="type.id as type.name for type in data.allowedExchangeRateTypeOptions"></select>
+          <select id="type" class="form-control" name="type" ng-model="exchangeRate.typeId" ng-options="type.id as type.code | translate for type in data.allowedExchangeRateTypeOptions"></select>
         </div>
       </div>
       <div class="col-md-6">
@@ -61,7 +61,7 @@
         <td>{{exchangeRate.date| DateFormat}}</td>
         <td>{{exchangeRate.currency}}</td>
         <td>{{exchangeRate.amount}}</td>
-        <td>{{exchangeRate.rateType.name}}</td>
+        <td>{{exchangeRate.rateType.code | translate}}</td>
         <td style="width: 1%; white-space: nowrap;">
           <a href="javascript:void(0);" ng-click="editExchangeRate(exchangeRate)"><i class="icon icon-edit"></i></a>
           <a href="javascript:void(0);" ng-click="removeExchangeRate(exchangeRate)"><i class="icon icon-remove"></i></a>
