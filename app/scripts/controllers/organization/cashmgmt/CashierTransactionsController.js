@@ -59,7 +59,7 @@
                     scope.cashierTransactions = data.pageItems;
                 });
             }
-            scope.initPage = function () {
+            scope.getCashierSummaryAndTransactions = function () {
                 var items = resourceFactory.tellerCashierSummaryAndTxnsResource.getCashierSummaryAndTransactions({
                     tellerId: routeParams.tellerId,
                     cashierId: routeParams.cashierId,
@@ -71,8 +71,19 @@
                     scope.totaltxn = data.totalFilteredRecords;
                     scope.cashierTransactions = data.cashierTransactions;
                 });
-            }
-            scope.initPage();
+            };
+            scope.getForexExchangeTransactions = function () {
+                var items = resourceFactory.forexExchangeResource.getForexExchangeTransactions({
+                    tellerId: routeParams.tellerId,
+                    cashierId: routeParams.cashierId,
+                    currencyCode: routeParams.currencyCode,
+                    offset:0,
+                    limit: scope.txnPerPage
+                }, function (data) {
+                    scope.forexExchangeTransactions = data;
+                });
+            };
+//            scope.initPage();
         }
     });
     mifosX.ng.application.controller('CashierTransactionsController', ['$scope', '$routeParams', '$route', '$location', 'ResourceFactory', mifosX.controllers.CashierTransactionsController]).run(function ($log) {

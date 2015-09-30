@@ -211,8 +211,15 @@
                           }
                         }
                     }),
-                    forexExchangeResource: defineResource(apiVer + "/forexexchange/:forexExchangeId", {forexExchangeId: '@forexExchangeId'}, {
+                    forexExchangeResource: defineResource(apiVer + "/forexexchange/:action/:forexExchangeId", {forexExchangeId: '@forexExchangeId'}, {
                         getAllForexExchanges: {method: 'GET', params: {}, isArray: true},
+                        getForexExchangeTransactions: {
+                          method: 'GET',
+                          isArray: true,
+                          params: {
+                            action: 'transactions'
+                          }
+                        },
                         update: { method: 'PUT' },
                         template: {
                           method: 'GET',
