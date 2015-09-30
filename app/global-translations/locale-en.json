@@ -2149,7 +2149,7 @@
     "validation.msg.forexexchange.currencyTo.cannot.be.blank":"You must select a Currency To",
     "validation.msg.forexexchange.amount.cannot.be.blank":"Amount is mandatory",
     "validation.msg.forexexchange.transactionDate.cannot.be.blank":"You must choose a Transaction Date",
-    "error.msg.exchange.rate.currency.invalid":"Exchange rate for currency '{{params[0].value}}' with '{{params[1].value | translate}}' rate type does not exist",
+    "error.msg.exchange.rate.currency.invalid":"Exchange rate for currency '{{params[0].value}}' with '{{params[1].value | translate}}' rate type and date '{{params[2].value|DateFormat}}' does not exist",
 
     "#Inputs": "..",
     "label.input.assignmentdate": "Assignment date",
