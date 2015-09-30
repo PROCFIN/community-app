@@ -211,6 +211,16 @@
                           }
                         }
                     }),
+                    forexExchangeResource: defineResource(apiVer + "/forexexchange/:forexExchangeId", {forexExchangeId: '@forexExchangeId'}, {
+                        getAllForexExchanges: {method: 'GET', params: {}, isArray: true},
+                        update: { method: 'PUT' },
+                        template: {
+                          method: 'GET',
+                          params: {
+                            forexExchangeId: 'template'
+                          }
+                        }
+                    }),
                     globalSearch: defineResource(apiVer + "/search", {query: '@query', resource: '@resource'}, {
                         search: { method: 'GET',
                             params: { query: '@query' , resource: '@resource'},

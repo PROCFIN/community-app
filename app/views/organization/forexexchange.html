@@ -1,0 +1,90 @@
+<div class="col-md-12" ng-controller="ForexExchangeController">
+  <ul class="breadcrumb">
+    <li><a href="#/organization">{{'label.anchor.organization'| translate}}</a></li>
+    <li class="active">{{'label.anchor.forexexchange'| translate}}</li>
+  </ul>
+
+  <!--<input ng-autofocus="true" ng-model="filterText" type="text" ng-keyup="onFilter()" class="form-control" placeholder="{{'label.input.filterbycurrency'| translate}}">-->
+  <div class="clearfix">
+    <button type="button" class="btn btn-primary pull-right" has-permission='CREATE_FOREXEXCHANGE' style="margin: 10px 0" ng-click="openEditForexExchangeDialog();">{{'label.button.createforexexchange'| translate }}</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr class="graybg">
+        <th>{{ 'label.heading.date' | translate }}</th>
+        <th>{{ 'label.heading.client' | translate }}</th>
+        <th>{{ 'label.heading.currency.from' | translate }}</th>
+        <th>{{ 'label.heading.currency.to' | translate }}</th>
+        <th>{{ 'label.heading.ratetype' | translate }}</th>
+        <th>{{ 'label.heading.rate' | translate }}</th>
+        <th>{{ 'label.heading.amount.given' | translate }}</th>
+        <th>{{ 'label.heading.amount.taken' | translate }}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="forexExchange in forexExchanges| filter:filterText">
+        <td>{{forexExchange.transactionDate| DateFormat}}</td>
+        <td>{{forexExchange.clientName}}</td>
+        <td>{{forexExchange.currencyFrom.code}}</td>
+        <td>{{forexExchange.currencyTo.code}}</td>
+        <td>{{forexExchange.exchangeRate.rateType.code| translate}}</td>
+        <td>{{forexExchange.exchangeRate.amount| number}}</td>
+        <td>{{forexExchange.currencyFrom.displaySymbol}}&nbsp;{{forexExchange.amountGiven| number}}</td>
+        <td>{{forexExchange.currencyTo.displaySymbol}}&nbsp;{{forexExchange.amountTaken| number}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <script type="text/ng-template" id="edit-forexexchange-dialog.html">
+  
+  <div class="modal-header silver">
+    Forex Exchange
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="clearfix">
+        <div class="form-group col-md-12">
+          <label>Date</label>
+          <div class="input-group">
+            <input id="transactionDate" sort type="text" datepicker-pop="dd/MM/yyyy" ng-model="forexExchange.transactionDate" class="form-control" is-open="datepicker.opened" min="minDate" max="restrictDate"/>
+            <label for="transactionDate" class="input-group-addon" style="cursor: pointer;"><i class="icon icon-calendar"></i></label>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="form-group col-md-6">
+          <label>Client ID</label>
+          <input id="clientId" type="text" class="form-control" name="clientId" ng-model="forexExchange.clientId">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Client Name</label>
+          <input id="clientName" type="text" class="form-control" name="clientName" ng-model="forexExchange.clientName">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Currency From</label>
+          <select id="currencyFrom" class="form-control" name="currencyFrom" ng-model="forexExchange.currencyFrom" ng-options="currency.code as currency.displayLabel for currency in data.allowedCurrencies"></select>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Currency To</label>
+          <select id="currencyTo" class="form-control" name="currencyTo" ng-model="forexExchange.currencyTo" ng-options="currency.code as currency.displayLabel for currency in data.allowedCurrencies"></select>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Amount</label>
+          <input id="amount" type="text" class="form-control" name="amount" ng-model="forexExchange.amount">
+        </div>
+      </div>
+      <api-validate></api-validate>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel()">{{'label.button.cancel'| translate}}</button>
+    <button class="btn btn-primary" ng-click="save()">{{'label.button.save'| translate}}</button>
+  </div>
+  </script>
+</div>
+
+
+
+

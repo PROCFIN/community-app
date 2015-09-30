@@ -436,6 +436,9 @@
             .when('/exchangerate', {
                 templateUrl: 'views/organization/exchangerate.html'
             })
+            .when('/forexexchange', {
+                templateUrl: 'views/organization/forexexchange.html'
+            })
             .when('/viewpaymenttype/', {
                 templateUrl: 'views/organization/viewpaymenttype.html'
             })
