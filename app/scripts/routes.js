@@ -727,7 +727,7 @@
             .when('/tellers/:tellerId/cashiers/:cashierId', {
                 templateUrl: 'views/organization/cashmgmt/viewCashiersForTeller.html'
             })
-            .when('/tellers/:tellerId/cashiers/:cashierId/txns/:currencyCode', {
+            .when('/tellers/:tellerId/cashiers/:cashierId/txns/:tab/:currencyCode', {
                 templateUrl: 'views/organization/cashmgmt/cashierTransactions.html'
             })
             .when('/tellers/:tellerId/cashiers/:cashierId/actions/:action', {

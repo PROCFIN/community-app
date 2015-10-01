@@ -12,9 +12,9 @@
                 scope.cashiersForTeller = data;
             });
 
-            resourceFactory.currencyConfigResource.get({fields: 'selectedCurrencyOptions'}, function (data) {
-                scope.currencyCode = data.selectedCurrencyOptions[0].code;
-            });
+//            resourceFactory.currencyConfigResource.get({fields: 'selectedCurrencyOptions'}, function (data) {
+//                scope.currencyCode = data.selectedCurrencyOptions[0].code;
+//            });
 
             var idToNodeMap = {};
             scope.routeTo = function (tellerId, cashierId) {
@@ -38,7 +38,7 @@
                 location.path('/tellers/' + tellerId + "/cashiers/" + cashierId + "/actions/settle/");
             };
             scope.transactions = function (tellerId, cashierId) {
-                location.path('/tellers/' + tellerId + "/cashiers/" + cashierId + "/txns/" + scope.currencyCode );
+                location.path('/tellers/' + tellerId + "/cashiers/" + cashierId + "/txns/cash/ALL" );
             };
 
             scope.compare = function (x, y) {

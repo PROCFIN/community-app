@@ -14,9 +14,8 @@
           {{'label.heading.cashmgmt.cashierName'| translate }} : {{cashierSummaryAndTxns.cashierName}}</td>
         <td class="col-md-2">
           <select id="currencyCode" name="currency" ng-model="formData.currencyCode" class="form-control"
-                  ng-options="currency.code as (currency.name+' ('+ currency.displaySymbol +')') for currency in currencyOptions"
+                  ng-options="currency.code as (currency.name + (currency.displaySymbol?' ('+ currency.displaySymbol +')' : '')) for currency in currencyOptions"
                   value="{{currency.code}}" required>
-            <option value=""> {{'label.selectcurrency'| translate}} </option>
           </select>
         </td>
         <td>
@@ -39,7 +38,7 @@
   </div>
   <div class="clear"></div>
   <tabset>
-    <tab heading="Cash Transactions" select="getCashierSummaryAndTransactions()">
+    <tab heading="Cash Transactions" active="tabs.cash" select="selectTab('cash')">
       <div>
         <input ng-autofocus="true" ng-model="filterText" type="text" class="form-control span marginbottom0px"
                placeholder="{{'label.input.filterbynameexternalid'| translate}}">
@@ -83,7 +82,7 @@
         </table>
       </div>
     </tab>
-    <tab heading="Forex Transactions" select="getForexExchangeTransactions()">
+    <tab heading="Forex Transactions" active="tabs.forex" select="selectTab('forex')">
       <div>
         <table class="table table-striped table-hover">
           <thead>
