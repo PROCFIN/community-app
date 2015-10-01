@@ -52,6 +52,7 @@
             <tr class="graybg">
               <th align="center">{{'label.date'| translate}}</th>
               <th align="center">{{'label.heading.transactions'| translate}}</th>
+              <th align="center">Currency</th>
               <th align="center">
                 <span>{{'label.heading.cashmgmt.cashier.txnAmountAlloc'| translate}}:</span>
                 <span ng-hide="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">{{cashierSummaryAndTxns.sumCashAllocation| number}}</span>
@@ -82,21 +83,21 @@
               <td>{{txn.txnDate| DateFormat}}</td>
 
               <td>{{txn.txnType.value}}</td>
-
-              <td >
-                <span ng-if="txn.txnType.value == 'Allocate Cash'">{{txn.txnAmount| number}}</span>
+              <td>{{txn.currency.displayLabel}}</td>
+              <td>
+                <span ng-if="txn.txnType.value == 'Allocate Cash'">{{txn.currency.displaySymbol}}&nbsp;{{txn.txnAmount| number}}</span>
               </td>
 
               <td>
-                <span ng-if="txn.txnType.value == 'Cash In'">{{txn.txnAmount| number}}</span>
+                <span ng-if="txn.txnType.value == 'Cash In'">{{txn.currency.displaySymbol}}&nbsp;{{txn.txnAmount| number}}</span>
               </td>
 
               <td>
-                <span ng-if="txn.txnType.value == 'Cash Out'">{{txn.txnAmount| number}}</span>
+                <span ng-if="txn.txnType.value == 'Cash Out'">{{txn.currency.displaySymbol}}&nbsp;{{txn.txnAmount| number}}</span>
               </td>
 
-              <td >
-                <span ng-if="txn.txnType.value == 'Settle Cash'">{{txn.txnAmount| number}}</span>
+              <td>
+                <span ng-if="txn.txnType.value == 'Settle Cash'">{{txn.currency.displaySymbol}}&nbsp;{{txn.txnAmount| number}}</span>
               </td>
             </tr>
           </tbody>
