@@ -52,10 +52,26 @@
             <tr class="graybg">
               <th align="center">{{'label.date'| translate}}</th>
               <th align="center">{{'label.heading.transactions'| translate}}</th>
-              <th align="center">{{'label.heading.cashmgmt.cashier.txnAmountAlloc'| translate}}: {{cashierSummaryAndTxns.sumCashAllocation| number}}</th>
-              <th align="center">{{'label.heading.cashmgmt.cashier.txnAmountCashIn'| translate}}: {{cashierSummaryAndTxns.sumInwardCash| number}}</th>
-              <th align="center">{{'label.heading.cashmgmt.cashier.txnAmountCashOut'| translate}}: {{cashierSummaryAndTxns.sumOutwardCash| number}}</th>
-              <th align="center">{{'label.heading.cashmgmt.cashier.txnAmountSettle'| translate}}: {{cashierSummaryAndTxns.sumCashSettlement| number}}</th>
+              <th align="center">
+                <span>{{'label.heading.cashmgmt.cashier.txnAmountAlloc'| translate}}:</span>
+                <span ng-hide="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">{{cashierSummaryAndTxns.sumCashAllocation| number}}</span>
+                <span ng-show="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">N/A</span>
+              </th>
+              <th align="center">
+                <span>{{'label.heading.cashmgmt.cashier.txnAmountCashIn'| translate}}:</span>
+                <span ng-hide="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">{{cashierSummaryAndTxns.sumInwardCash| number}}</span>
+                <span ng-show="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">N/A</span>
+              </th>
+              <th align="center">
+                <span>{{'label.heading.cashmgmt.cashier.txnAmountCashOut'| translate}}:</span>
+                <span ng-hide="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">{{cashierSummaryAndTxns.sumOutwardCash| number}}</span>
+                <span ng-show="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">N/A</span>
+              </th>
+              <th align="center">
+                <span>{{'label.heading.cashmgmt.cashier.txnAmountSettle'| translate}}:</span>
+                <span ng-hide="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">{{cashierSummaryAndTxns.sumCashSettlement| number}}</span>
+                <span ng-show="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">N/A</span>
+              </th>
               <th></th>
 
             </tr>
