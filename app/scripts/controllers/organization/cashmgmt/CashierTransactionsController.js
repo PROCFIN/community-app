@@ -6,6 +6,7 @@
       scope.txnPerPage = 15;
       scope.formData = [];
       scope.tabs = {};
+      scope.selectedCurrencyCode = routeParams.currencyCode || 'ALL';
       var selectedTab = routeParams.tab || 'cash';
       scope.tabs[selectedTab] = true;
 

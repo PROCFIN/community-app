@@ -22,7 +22,12 @@
           <a ng-click="routeToTxn()" class="btn btn-primary">{{'label.button.cashier.showtxn'| translate}} </a>
         </td>
 
-        <td><span class="h4">{{'label.heading.cashmgmt.cashier.netAmount'| translate}}: {{cashierSummaryAndTxns.netCash| number}}</span></td>
+        <td>
+          <span class="h4">{{'label.heading.cashmgmt.cashier.netAmount'| translate}}:
+            <span ng-hide="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">{{cashierSummaryAndTxns.netCash| number}}</span>
+            <span ng-show="!selectedCurrencyCode || selectedCurrencyCode === 'ALL'">N/A</span>
+          </span>
+        </td>
         <td><button id="allocate" type="submit" class="btn btn-success pull-right" has-permission='ALLOCATECASHIER_TELLER'
                     data-ng-click="routeToAllocate()">
             <i class="icon-level-down icon-white">{{'label.button.cashier.allocatefunds'| translate}}</i>
