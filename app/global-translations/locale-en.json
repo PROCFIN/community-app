@@ -2152,6 +2152,8 @@
     "error.msg.exchange.rate.currency.invalid":"Exchange rate for currency '{{params[0].value}}' with '{{params[1].value | translate}}' rate type and date '{{params[2].value|DateFormat}}' does not exist",
     "label.heading.transaction.date":"Transaction Date",
     "label.heading.created.date":"Creation Date",
+    "error.msg.teller.not.found": "Teller is not found",
+    "error.msg.cashier.duplicate.staff.id": "Selected staff already related to another cashier",
 
     "#Inputs": "..",
     "label.input.assignmentdate": "Assignment date",
