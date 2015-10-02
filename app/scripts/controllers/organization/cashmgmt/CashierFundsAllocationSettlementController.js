@@ -30,7 +30,7 @@
                 resourceFactory.tellerCashierTxnsAllocateResource.allocate(
                     {'tellerId': routeParams.tellerId, 'cashierId': routeParams.cashierId}, 
                     this.formData, function (data) {
-                        location.path('tellers/' + routeParams.tellerId + '/cashiers/' + routeParams.cashierId + '/txns/' + scope.formData.currencyCode);
+                        location.path('tellers/' + routeParams.tellerId + '/cashiers/' + routeParams.cashierId + '/txns/cash/' + scope.formData.currencyCode);
                 });
             }; 
 
@@ -42,7 +42,7 @@
                 resourceFactory.tellerCashierTxnsSettleResource.settle(
                     {'tellerId': routeParams.tellerId, 'cashierId': routeParams.cashierId}, 
                     this.formData, function (data) {
-                        location.path('tellers/' + routeParams.tellerId + '/cashiers/' + routeParams.cashierId + '/txns/' + scope.formData.currencyCode);
+                        location.path('tellers/' + routeParams.tellerId + '/cashiers/' + routeParams.cashierId + '/txns/cash/' + scope.formData.currencyCode);
                 });
             }; 
         }
